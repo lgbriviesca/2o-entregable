@@ -22,13 +22,14 @@
 
 .weatherCard {
   text-align: center;
-  margin-top:11vw;
-  margin-left: 7vw;
-  width: 350px;
-  height: 37vw;
+  margin-top:14vw;
+  margin-left: 9vw;
+  margin-right: 9vw;
+  width: 35vw;
+  height: 28vw;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  border-radius: 30px;
+  padding: 2vw;
+  border-radius: 3vw;
   background: white;
   opacity: 75%;
 }
@@ -38,34 +39,43 @@ h1 {
 }
 
 .temps {
-  margin-top: 15px;
+  margin-top: 1.5vw;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  font-size: 1.5vw;
 }
 
 #temp {
-  position: absolute;
   display: flex;
   flex-direction: column;
   width: 9vw;
   height: 9vw;
-  margin-left: 14vw;
+  margin-left: 11.5vw;
   margin-top: -9vw;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  font-size: 1.8vw;
-  padding-top: 1.2vw;
+  font-size: 3vw;
+   padding-top: 2.5vw;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   background: white;
+}
+
+.button{
+  padding-top: 2vw;
+}
+
+.degrees{
+  position: absolute;
+  margin-top: -5vw;
 }
 
 button {
   border-bottom-left-radius: 5vw;
   border-bottom-right-radius: 5vw;
-  width: 8.5vw;
-  height: 4.5vw;
+  width: 9vw;
+  height: 4.4vw;
   border: none;
   font-size: 1.2vw;
   background: rgb(143, 143, 143);
@@ -76,7 +86,11 @@ button:hover {
   background: rgb(143, 143, 143);
   background: linear-gradient(0deg, rgba(143, 143, 143, 0.7777485994397759) 0%, rgba(193, 193, 193, 0) 100%);
   cursor: pointer;
-  margin-top: -1vw;
+}
+
+.location{
+  font-size: 1.5vw;
+  margin-top: 2vw;
 }
 
 .forecastHours {
@@ -111,11 +125,7 @@ background: none;
   background-color: white;
   border-radius: 10px;
   opacity: 80%;
-}
-
-.map:hover {
-  background: rgb(143, 143, 143);
-  background: linear-gradient(0deg, rgba(143, 143, 143, 0.7777485994397759) 0%, rgba(193, 193, 193, 0) 100%);
+  font-size: 1.3vw;
 }
 
 .forecastIcon{
@@ -124,9 +134,8 @@ background: none;
 
 .forecastDays {
   width: 20vw;
-  font-size: 1vw;
+  font-size: 1.5vw;
   margin-top: 3vw;
-  margin-left: 5vw;
  overflow-y: scroll;
 height: 50vw;
 background: none;
@@ -146,6 +155,7 @@ background: none;
   text-align: center;
   padding-top: 1vw;
   font-weight: bolder;
+  font-size: 1.5vw;
   }
 
 .forecastDaylySection2{
@@ -155,11 +165,12 @@ background: none;
   background-color: transparent;
   text-align: center;
   align-items:center ;
+  margin-left: 3vw;
 }
 
 .forecastDaylySection3{
-  font-size: .8vw;
-  margin-bottom: 1.4vw;
+  font-size: 1.2vw;
+  margin-bottom: 1.5vw;
   }
 
 .tempMinMax{
@@ -167,8 +178,8 @@ background: none;
   flex-direction: row;
   text-align: center;
   justify-content:space-evenly;
-  margin-bottom: 1vw;
-  font-size: .9vw;
+  margin-bottom: 2vw;
+  font-size: 1.5vw;
 }
 
 .info{
