@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Clock from "../components/Clock";
 import DateInSpanish from "../components/Date";
-import ForecastHourly from "../components/ForecastHourly";
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
@@ -138,22 +137,19 @@ const Weather = () => {
       </div>
       <div className={backgroundChange} className="weatherCard">
         <div id="temp">
-          <p>
+          <p className="degrees">
             <b>{Math.trunc(temp)}°</b>
           </p>
-          <div>
-            <button onClick={conversion}>{isCelsius ? "to F" : "to C"}°</button>
+          <div className="button">
+            <button onClick={conversion}>{isCelsius ? "to °F" : "to °C"}</button>
           </div>
         </div>
         <div className="clock">
-          <b>
-            {" "}
-            <Clock></Clock>{" "}
-          </b>
+            <Clock></Clock>
         </div>
         <div>{DateInSpanish()}</div>
-        <h3>
-          {weather.name} {weather.sys?.country}
+        <h3 className="location">
+          {weather.name}, {weather.sys?.country}
         </h3>
         <img
           src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
