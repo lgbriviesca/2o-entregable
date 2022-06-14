@@ -130,7 +130,7 @@ const Weather = () => {
             </section>
             <img
               className="forecastIcon"
-              src={`http://openweathermap.org/img/wn/${hour.weather?.[0].icon}@2x.png`}
+              src={`https://openweathermap.org/img/wn/${hour.weather?.[0].icon}@2x.png`}
             />
           </div>
         ))}
@@ -152,7 +152,7 @@ const Weather = () => {
           {weather.name}, {weather.sys?.country}
         </h3>
         <img
-          src={`http://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
         />
         <h2>{weatherDescription(clima)}</h2>
         <div className="temps">
@@ -194,7 +194,7 @@ const Weather = () => {
               <div>
                 <img
                   className="forecastIcon"
-                  src={`http://openweathermap.org/img/wn/${day.weather?.[0].icon}@2x.png`}
+                  src={`https://openweathermap.org/img/wn/${day.weather?.[0].icon}@2x.png`}
                 />
               </div>
             </div>
