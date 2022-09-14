@@ -1,8 +1,8 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Clock from "../components/Clock";
-import DateInSpanish from "../components/Date";
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Clock from '../components/Clock';
+import DateInSpanish from '../components/Date';
 
 const Weather = () => {
   const [weather, setWeather] = useState([]);
@@ -13,7 +13,7 @@ const Weather = () => {
 
   const [forecast, setForecast] = useState([]);
 
-  const success = (position) => {
+  const success = position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
 
@@ -21,7 +21,7 @@ const Weather = () => {
       .get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=50c15f632f3251f35dafd68cbf6524f8&units=metric`
       )
-      .then((res) => {
+      .then(res => {
         setWeather(res.data);
         setTemp(res.data.main.temp);
         setTempMin(res.data.main.temp_min);
@@ -33,13 +33,10 @@ const Weather = () => {
       .get(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=50c15f632f3251f35dafd68cbf6524f8&units=metric`
       )
-      .then((res) => {
+      .then(res => {
         setForecast(res?.data);
       });
   };
-
-  console.log(forecast);
-  console.log(weather);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
@@ -61,43 +58,43 @@ const Weather = () => {
 
   //------------------------------------------------------//
 
-  const backgroundChange = (weatherInfo) => {
-    if (weatherInfo === "Clouds") {
+  const backgroundChange = weatherInfo => {
+    if (weatherInfo === 'Clouds') {
       document.body.style.backgroundImage =
-        "url(https://upload.wikimedia.org/wikipedia/commons/a/ad/Clouds_in_Russia._img_105.jpg)";
-    } else if (weatherInfo === "Rain") {
+        'url(https://upload.wikimedia.org/wikipedia/commons/a/ad/Clouds_in_Russia._img_105.jpg)';
+    } else if (weatherInfo === 'Rain') {
       document.body.style.backgroundImage =
-        "url(https://www.elindependiente.com/wp-content/uploads/2019/12/LlUVIA.jpg)";
-    } else if (weatherInfo === "Clear") {
+        'url(https://www.elindependiente.com/wp-content/uploads/2019/12/LlUVIA.jpg)';
+    } else if (weatherInfo === 'Clear') {
       document.body.style.backgroundImage =
-        "url(https://www.bbva.com/wp-content/uploads/2016/08/Ciudad-de-México-1.jpg)";
-    } else if (weatherInfo === "Drizzle") {
+        'url(https://www.bbva.com/wp-content/uploads/2016/08/Ciudad-de-México-1.jpg)';
+    } else if (weatherInfo === 'Drizzle') {
       document.body.style.backgroundImage =
-        "url(https://www.elindependiente.com/wp-content/uploads/2019/12/LlUVIA.jpg)";
-    } else if (weatherInfo === "Thunderstorm") {
+        'url(https://www.elindependiente.com/wp-content/uploads/2019/12/LlUVIA.jpg)';
+    } else if (weatherInfo === 'Thunderstorm') {
       document.body.style.backgroundImage =
-        "url(https://admin.municipiospuebla.mx/sites/default/files/admin-fotos-2015-05-16-342125.jpg?up=1523645703)";
+        'url(https://admin.municipiospuebla.mx/sites/default/files/admin-fotos-2015-05-16-342125.jpg?up=1523645703)';
     } else {
       document.body.style.backgroundImage =
-        "url(https://upload.wikimedia.org/wikipedia/commons/0/0e/Haputale%2C_Sri_Lanka%2C_Tea_plantations_in_fog_3.jpg)";
+        'url(https://upload.wikimedia.org/wikipedia/commons/0/0e/Haputale%2C_Sri_Lanka%2C_Tea_plantations_in_fog_3.jpg)';
     }
   };
 
   const clima = weather.weather?.[0].main;
 
-  const weatherDescription = (clima) => {
-    if (clima === "Clouds") {
-      return (clima = "Nublado");
-    } else if (clima === "Clear") {
-      return (clima = "Despejado");
-    } else if (clima === "Rain") {
-      return (clima = "Lluvia");
-    } else if (clima === "Drizzle") {
-      return (clima = "Lloviznas");
-    } else if (clima === "Thunderstorm") {
-      return (clima = "Tormentas");
-    } else if (clima === "Atmosphere") {
-      return (clima = "Bruma");
+  const weatherDescription = clima => {
+    if (clima === 'Clouds') {
+      return (clima = 'Nublado');
+    } else if (clima === 'Clear') {
+      return (clima = 'Despejado');
+    } else if (clima === 'Rain') {
+      return (clima = 'Lluvia');
+    } else if (clima === 'Drizzle') {
+      return (clima = 'Lloviznas');
+    } else if (clima === 'Thunderstorm') {
+      return (clima = 'Tormentas');
+    } else if (clima === 'Atmosphere') {
+      return (clima = 'Bruma');
     } else {
       return clima;
     }
@@ -107,24 +104,22 @@ const Weather = () => {
 
   const nextDays = forecast.daily?.slice(1, 7);
 
-  console.log(nextDays);
-
   return (
     <div className="generalContainer">
       <div className="forecastHours">
-        {nextHours?.map((hour) => (
+        {nextHours?.map(hour => (
           <div className="map">
             <section className="forecastSection1">
               <p>
-                {new Date(hour.dt * 1000).toLocaleString("en-US", {
-                  hour: "numeric",
+                {new Date(hour.dt * 1000).toLocaleString('en-US', {
+                  hour: 'numeric',
                 })}
               </p>
               <p>
                 {isCelsius
                   ? Math.trunc(hour.temp)
                   : Math.trunc((hour.temp * 9) / 5 + 32)}
-                {isCelsius ? "C" : "F"}°
+                {isCelsius ? 'C' : 'F'}°
               </p>
               <p>{weatherDescription(hour?.weather[0]?.main)}</p>
             </section>
@@ -141,43 +136,47 @@ const Weather = () => {
             <b>{Math.trunc(temp)}°</b>
           </p>
           <div className="button">
-            <button onClick={conversion}>{isCelsius ? "to °F" : "to °C"}</button>
+            <button onClick={conversion}>
+              {isCelsius ? 'to °F' : 'to °C'}
+            </button>
           </div>
         </div>
         <div className="clock">
+          <b>
             <Clock></Clock>
+          </b>
         </div>
         <div>{DateInSpanish()}</div>
-        <h3 className="location">
-          {weather.name}, {weather.sys?.country}
-        </h3>
+        <h4 className="ubication">
+          {weather.name} {/* {weather.sys?.country} */}
+        </h4>
         <img
           src={`https://openweathermap.org/img/wn/${weather.weather?.[0].icon}@2x.png`}
         />
         <h2>{weatherDescription(clima)}</h2>
         <div className="temps">
           <div>
-            Temp mín:{" "}
+            Temp mín:{' '}
             <b>
-              {Math.trunc(tempMin)} {isCelsius ? "C" : "F"}°
+              {Math.trunc(tempMin)} {isCelsius ? 'C' : 'F'}°
             </b>
           </div>
           <div>
-            Temp máx:{" "}
+            Temp máx:{' '}
             <b>
-              {Math.trunc(tempMax)} {isCelsius ? "C" : "F"}°
+              {Math.trunc(tempMax)} {isCelsius ? 'C' : 'F'}°
             </b>
           </div>
         </div>
       </div>
       <div className="forecastDays">
-        {nextDays?.map((day) => (
+        {nextDays?.map(day => (
           <div className="map2">
             <div className="forecastDaylySection1">
               <p>
-                {new Date(day.dt * 1000).toLocaleString("es-ES", {
-                  weekday: "long",
-                  day: "numeric",
+                {new Date(day.dt * 1000).toLocaleString('es-ES', {
+                  weekday: 'long',
+                  day: 'numeric',
                 })}
               </p>
             </div>
@@ -187,14 +186,14 @@ const Weather = () => {
                   {isCelsius
                     ? Math.trunc(day.temp.day)
                     : Math.trunc((day.temp.day * 9) / 5 + 32)}
-                  {isCelsius ? "C" : "F"}°
+                  {isCelsius ? 'C' : 'F'}°
                 </p>
                 <p>{weatherDescription(day?.weather[0]?.main)}</p>
               </div>
               <div>
                 <img
-                  className="forecastIcon"
-                  src={`https://openweathermap.org/img/wn/${day.weather?.[0].icon}@2x.png`}
+                  className="forecastIcon forecastIconDay"
+                  src={`http://openweathermap.org/img/wn/${day.weather?.[0].icon}@2x.png`}
                 />
               </div>
             </div>
@@ -202,53 +201,55 @@ const Weather = () => {
               <div>
                 <div className="tempMinMax">
                   <div>
-                    {" "}
-                    <p>Temp. mín:</p>{" "}
+                    {' '}
+                    <p>Temp. mín:</p>{' '}
                     <p>
-                      {" "}
+                      {' '}
                       {isCelsius
                         ? Math.trunc(day.temp.min)
-                        : Math.trunc((day.temp.min * 9) / 5 + 32)}{" "}
-                      {isCelsius ? "C" : "F"}°
+                        : Math.trunc((day.temp.min * 9) / 5 + 32)}{' '}
+                      {isCelsius ? 'C' : 'F'}°
                     </p>
                   </div>
                   <div>
-                    {" "}
-                    <p>Temp. máx:</p>{" "}
+                    {' '}
+                    <p>Temp. máx:</p>{' '}
                     <p>
-                      {" "}
+                      {' '}
                       {isCelsius
                         ? Math.trunc(day.temp.max)
-                        : Math.trunc((day.temp.max * 9) / 5 + 32)}{" "}
-                      {isCelsius ? "C" : "F"}°
+                        : Math.trunc((day.temp.max * 9) / 5 + 32)}{' '}
+                      {isCelsius ? 'C' : 'F'}°
                     </p>
                   </div>
                 </div>
                 <p className="info">
-                  Temp. por la mañana:{" "}
+                  Temp. por la mañana:{' '}
                   {isCelsius
                     ? Math.trunc(day.temp.morn)
-                    : Math.trunc((day.temp.morn * 9) / 5 + 32)}{" "}
-                  {isCelsius ? "C" : "F"}°
+                    : Math.trunc((day.temp.morn * 9) / 5 + 32)}{' '}
+                  {isCelsius ? 'C' : 'F'}°
                 </p>
                 <p className="info">
-                  Temp. por la tarde:{" "}
+                  Temp. por la tarde:{' '}
                   {isCelsius
                     ? Math.trunc(day.temp.eve)
-                    : Math.trunc((day.temp.eve * 9) / 5 + 32)}{" "}
-                  {isCelsius ? "C" : "F"}°
+                    : Math.trunc((day.temp.eve * 9) / 5 + 32)}{' '}
+                  {isCelsius ? 'C' : 'F'}°
                 </p>
                 <p className="info">
-                  Temp. por la noche:{" "}
+                  Temp. por la noche:{' '}
                   {isCelsius
                     ? Math.trunc(day.temp.night)
-                    : Math.trunc((day.temp.night * 9) / 5 + 32)}{" "}
-                  {isCelsius ? "C" : "F"}°
+                    : Math.trunc((day.temp.night * 9) / 5 + 32)}{' '}
+                  {isCelsius ? 'C' : 'F'}°
                 </p>
               </div>
             </div>
           </div>
         ))}
+      </div>
+      <div className='empty'>
       </div>
     </div>
   );
