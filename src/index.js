@@ -2,13 +2,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import React, { Suspense, lazy } from 'react';
+
 const App = lazy(() => import('./App'));
-
-
 
 ReactDOM.render(
   <React.StrictMode>
-    <Suspense fallback={<h1 className='load'>loading...</h1>}>
+    <Suspense
+      fallback={
+        <div className="lds-spinner"><div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      }
+    >
       <App />
     </Suspense>
   </React.StrictMode>,
