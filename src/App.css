@@ -31,7 +31,7 @@ body {
 
 .weatherCard {
   text-align: center;
-  margin-top:14vw;
+  margin-top: 14vw;
   margin-left: 9vw;
   margin-right: 9vw;
   width: 35vw;
@@ -41,6 +41,17 @@ body {
   border-radius: 3vw;
   background: white;
   opacity: 75%;
+}
+
+#todaysWeather {
+  font-size: 1.3vw;
+  margin: 1vw;
+}
+
+#clock {
+  font-size: 2vw;
+  margin: 1vw;
+  padding-top: .5vw
 }
 
 h1 {
@@ -66,16 +77,16 @@ h1 {
   align-items: center;
   justify-content: center;
   font-size: 3vw;
-   padding-top: 2.5vw;
+  padding-top: 2.5vw;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   background: white;
 }
 
-.button{
+.button {
   padding-top: 2vw;
 }
 
-.degrees{
+.degrees {
   position: absolute;
   margin-top: -5vw;
 }
@@ -97,7 +108,7 @@ button:hover {
   cursor: pointer;
 }
 
-.location{
+.location {
   font-size: 1.5vw;
   margin-top: 2vw;
 }
@@ -107,12 +118,12 @@ button:hover {
   font-size: 1vw;
   margin-top: 3vw;
   margin-left: 3vw;
- overflow-y: scroll;
-height: 50vw;
-background: none;
+  overflow-y: scroll;
+  height: 50vw;
+  background: none;
 }
 
-.forecastSection1{
+.forecastSection1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -120,7 +131,7 @@ background: none;
   text-align: center;
 }
 
-.forecastSection1>p:first-of-type + p {
+.forecastSection1>p:first-of-type+p {
   font-weight: bolder;
   margin-top: .5vw;
   margin-bottom: .5vw;
@@ -137,7 +148,7 @@ background: none;
   font-size: 1.3vw;
 }
 
-.forecastIcon{
+.forecastIcon {
   width: 11vw;
 }
 
@@ -145,9 +156,9 @@ background: none;
   width: 20vw;
   font-size: 1.5vw;
   margin-top: 3vw;
- overflow-y: scroll;
-height: 50vw;
-background: none;
+  overflow-y: scroll;
+  height: 50vw;
+  background: none;
 }
 
 .map2 {
@@ -160,37 +171,268 @@ background: none;
   opacity: 80%;
 }
 
-.forecastDaylySection1{
+.forecastDaylySection1 {
   text-align: center;
   padding-top: 1vw;
   font-weight: bolder;
   font-size: 1.5vw;
-  }
+}
 
-.forecastDaylySection2{
+.forecastDaylySection2 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   background-color: transparent;
   text-align: center;
-  align-items:center ;
+  align-items: center;
   margin-left: 3vw;
 }
 
-.forecastDaylySection3{
+.forecastDaylySection3 {
   font-size: 1.2vw;
   margin-bottom: 1.5vw;
-  }
+}
 
-.tempMinMax{
+.tempMinMax {
   display: flex;
   flex-direction: row;
   text-align: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   margin-bottom: 2vw;
   font-size: 1.5vw;
 }
 
-.info{
+.info {
   margin-left: 2vw;
+}
+
+.empty{
+  display: none;
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  .generalContainer {
+    display: flex;
+  }
+
+  /* ------------------------------------------- */
+
+  .forecastHours {
+    position: absolute;
+    width: 80vw;
+    top: 76vh;
+    left: 6vw;
+    overflow-y: scroll;
+    background: none;
+  }
+  
+  .forecastSection1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    text-align: center;
+  }
+  
+  .forecastSection1>p:first-of-type+p {
+    font-weight: bolder;
+    margin: 0 6vw;
+  }
+
+  
+  .map {
+    display: flex;
+    flex-direction: row;
+   /*  justify-content: space-evenly; */
+    background-color: white;
+    border-radius: 10px;
+    opacity: 90%;
+    font-size: 5vw;
+    height: 7vh;
+  }
+  
+/*   .forecastIcon {
+    position: absolute;
+    right: 0;
+    margin-left: 2vw;
+    width: 11vw;
+  } */
+
+  
+
+  /* ---------------------------------------------- */
+
+  .weatherCard {
+    position: absolute;
+    text-align: center;
+    top: 5vh;
+    width: 80vw;
+    height: 60vh;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 2vw;
+    border-radius: 3vw;
+    background: white;
+    opacity: 80%;
+  }
+
+  #todaysWeather {
+    font-size: 5vw;
+    margin-top: 3vh;
+  }
+
+  #clock {
+    font-size: 6vw;
+    margin: 2vh;
+    padding-top: 2vh
+  }
+
+  h1 {
+    margin-bottom: 2vw;
+  }
+
+  .temps {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 4vw;
+  }
+
+  #temp {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 30vw;
+    margin-left: 24vw;
+    margin-top: -10vh;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 3vw;
+    padding-top: 2.5vw;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    background: white;
+  }
+
+  .button {
+    padding-top: 9vw;
+  }
+
+  .degrees {
+    position: absolute;
+    font-size: 8vw;
+    margin-top: -12vw;
+  }
+
+  button {
+    border-bottom-left-radius: 15vw;
+    border-bottom-right-radius: 15vw;
+    width: 30vw;
+    height: 19vw;
+    border: none;
+    font-size: 5vw;
+    background: rgb(143, 143, 143);
+    background: linear-gradient(0deg, rgba(143, 143, 143, 0.48923319327731096) 0%, rgba(193, 193, 193, 0) 100%);
+  }
+
+  button:hover {
+    background: rgb(143, 143, 143);
+    background: linear-gradient(0deg, rgba(143, 143, 143, 0.7777485994397759) 0%, rgba(193, 193, 193, 0) 100%);
+    cursor: pointer;
+  }
+
+  .ubication {
+    font-size: 4vw;
+    margin-top: 4vh;
+  }
+
+  /* -------------------------------------------- */
+
+/*   position: absolute;
+ position: absolute;
+    width: 80vw;
+    top: 67vh;
+    left: 6vw; */
+
+  .forecastDays {
+    position: absolute;
+    top: 109vh;
+    left: 9vw;
+    width: 80vw;
+    height: 90vh;
+    font-size: 1.5vw;
+    overflow-y: scroll;
+    background: none;
+    margin-bottom: 5vh;
+  }
+  
+  .map2 {
+    display: flex;
+    height: 48vh;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2.5vh;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 80%;
+    padding-bottom: 2vh;
+  }
+  
+  .forecastDaylySection1 {
+    text-align: center;
+    padding-top: 1vw;
+    font-weight: bolder;
+    font-size: 8vw;
+    margin-bottom: 2vh;
+  }
+  
+  .forecastDaylySection2 {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+    background-color: transparent;
+    text-align:center;
+    align-items:center;
+    margin-left: 0;
+    font-size: 6vw;
+    margin-bottom: 2vh;
+  }
+  
+  .forecastDaylySection3 {
+    font-size: 5vw;
+    margin-bottom: 1.5vw;
+  }
+
+  .forecastIconDay{
+    width: 20vw;
+  }
+  
+  .tempMinMax {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-evenly;
+    font-size: 6vw;
+  }
+  
+  .info {
+    margin-left: 0;
+    font-size: 5vw;
+    padding: 0 8vw;
+  }
+
+  .empty{
+    display: flex;
+    position: absolute;
+    top: 195vh;
+    width: 100%;
+    height: 10vh;
+    background-color: brown;
+    font-size: 1.5vw;
+    overflow-y: scroll;
+    background: none;
+  }
+
 }
